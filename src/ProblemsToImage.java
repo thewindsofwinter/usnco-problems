@@ -65,17 +65,24 @@ public class ProblemsToImage {
                     int currentCut = currentY - MIN_GAP/2;
                     int width = CENTER - LEFT;
                     int height = currentCut - lastCut;
-                            
-                    BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-                    cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
-                            LEFT, lastCut, CENTER, currentCut, null);
                     
-                    File outputFile = new File(year + "/" + problemNumber + ".png");
-                    ImageIO.write(cropped, "png", outputFile);
-                    
-                    consecutiveBlankLines = 0;
-                    lastCut = currentCut;
-                    problemNumber++;
+                    // Eliminate large white spaces with minimal text
+                    if(height - MIN_GAP < 10) {
+                        consecutiveBlankLines = 0;
+                        lastCut = currentCut;
+                    }
+                    else {
+                        BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+                        cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
+                                LEFT, lastCut, CENTER, currentCut, null);
+                        
+                        File outputFile = new File(year + "/" + problemNumber + ".png");
+                        ImageIO.write(cropped, "png", outputFile);
+                        
+                        consecutiveBlankLines = 0;
+                        lastCut = currentCut;
+                        problemNumber++;
+                    }
                 }
                 
                 // Analyze line
