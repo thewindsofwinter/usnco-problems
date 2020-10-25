@@ -19,7 +19,8 @@ public class ProblemsToImage {
     private static final int LEFT = 130;
     private static final int RIGHT = 2420;
     private static final int CENTER = 1275;
-    private static final int MIN_GAP = 75;
+    private static final int MIN_GAP = 45;
+    private static final int MAX_GAP = 75;
     
     /**
      * @param args the command line arguments
@@ -60,14 +61,14 @@ public class ProblemsToImage {
             // Code for the first column
             while(currentY < BOTTOM && problemNumber <= 60) {
                 // Check if there are already seventy-five lines
-                if(consecutiveBlankLines > MIN_GAP) {
+                if(consecutiveBlankLines > MAX_GAP) {
                     // Crop and output image
-                    int currentCut = currentY - MIN_GAP/2;
+                    int currentCut = currentY - MAX_GAP/2;
                     int width = CENTER - LEFT;
                     int height = currentCut - lastCut;
                     
                     // Eliminate large white spaces with minimal text
-                    if(height - MIN_GAP < 10) {
+                    if(height - MAX_GAP < 10) {
                         consecutiveBlankLines = 0;
                         lastCut = currentCut;
                     }
@@ -99,6 +100,9 @@ public class ProblemsToImage {
                     consecutiveBlankLines++;
                 }
                 else {
+                    if(consecutiveBlankLines > MIN_GAP) {
+                        
+                    }
                     consecutiveBlankLines = 0;
                 }
                 
@@ -118,14 +122,14 @@ public class ProblemsToImage {
             
             while(currentY < BOTTOM && problemNumber <= 60) {
                 // Check if there are already seventy-five lines
-                if(consecutiveBlankLines > MIN_GAP) {
+                if(consecutiveBlankLines > MAX_GAP) {
                     // Crop and output image
-                    int currentCut = currentY - MIN_GAP/2;
+                    int currentCut = currentY - MAX_GAP/2;
                     int width = RIGHT - CENTER;
                     int height = currentCut - lastCut;
                     
                     // Eliminate large white spaces with minimal text
-                    if(height - MIN_GAP < MIN_GAP/2) {
+                    if(height - MAX_GAP < MAX_GAP/2) {
                         consecutiveBlankLines = 0;
                         lastCut = currentCut;
                     }
@@ -163,8 +167,8 @@ public class ProblemsToImage {
                 currentY++;
             }
             
-            // Break for now for testing
-            break;
+            pageNumber++;
+            
             // suffix in filename will be used as the file format
             // ImageIOUtil.writeImage(bim, "Exam2-" + (page+1) + ".png", 300);
         }
