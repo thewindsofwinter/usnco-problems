@@ -9,6 +9,15 @@ import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 
 public class ProblemsToImage {
 
+    // Empirically determined 
+    private static final int FIRST_TOP = 650;
+    private static final int TOP = 200;
+    private static final int BOTTOM = 3000;
+    private static final int LEFT = 130;
+    private static final int RIGHT = 2420;
+    private static final int CENTER = 1275;
+    private static final int GAP = 75;
+    
     /**
      * @param args the command line arguments
      * @throws IOException, FileNotFoundException 
@@ -18,7 +27,10 @@ public class ProblemsToImage {
         File dirpath = new File("C:/Users/winterwind/Downloads/Exam PDFs");
         File[] exams = dirpath.listFiles();
         
-        PDDocument document = PDDocument.load(exams[10]);
+        // Practice with one at first
+        PDDocument document = PDDocument.load(exams[0]);
+        // Get the year of the exam for folder naming
+        String year = exams[0].getName().substring(0, 4);
         PDFRenderer pdfRenderer = new PDFRenderer(document);
         
         for(int page = 0; page < document.getNumberOfPages(); ++page) { 
