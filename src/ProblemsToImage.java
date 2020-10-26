@@ -1,3 +1,7 @@
+/**
+ * Convert problems to image from exams prior to 2004
+ **/
+
 
 // Imports
 import java.awt.Color;
@@ -32,7 +36,7 @@ public class ProblemsToImage {
         File[] exams = dirpath.listFiles();
         
         // Practice with one at first [DONE]
-        for(int i = 5; i < exams.length; i++) {
+        for(int i = 0; i < 5; i++) {
             PDDocument document = PDDocument.load(exams[i]);
             // Get the year of the exam for folder naming
             String year = exams[i].getName().substring(0, 4);
