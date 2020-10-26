@@ -19,7 +19,7 @@ public class ProblemsToImage {
     private static final int LEFT = 130;
     private static final int RIGHT = 2420;
     private static final int CENTER = 1275;
-    private static final int MIN_GAP = 40;
+    private static final int MIN_GAP = 42;
     private static final int MAX_GAP = 60;
     
     /**
@@ -84,6 +84,10 @@ public class ProblemsToImage {
                         lastCut = currentCut;
                         problemNumber++;
                     }
+                    else {
+                        lastCut = currentCut;
+                        consecutiveBlankLines = 0;
+                    }
                 }
                 
                 // Analyze line
@@ -105,21 +109,23 @@ public class ProblemsToImage {
                         int width = CENTER - LEFT;
                         int height = currentCut - lastCut;
                         
-                        BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-                        cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
-                                LEFT, lastCut, CENTER, currentCut, null);
-
-                        File outputFile = new File("temp/eval.png");
-                        ImageIO.write(cropped, "png", outputFile);
-                        
-                        System.out.println("Check temp");
-                        Scanner sc = new Scanner(System.in);
-                        
-                        if(sc.nextBoolean()) {
-                            outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                        if(height > 150) {
+                            BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+                            cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
+                                    LEFT, lastCut, CENTER, currentCut, null);
+                            
+                            File outputFile = new File("temp/eval.png");
                             ImageIO.write(cropped, "png", outputFile);
-                            lastCut = currentCut;
-                            problemNumber++;
+                            
+                            System.out.println("Check temp");
+                            Scanner sc = new Scanner(System.in);
+                            
+                            if(sc.nextBoolean()) {
+                                outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                                ImageIO.write(cropped, "png", outputFile);
+                                lastCut = currentCut;
+                                problemNumber++;
+                            }
                         }
                     }
                     consecutiveBlankLines = 0;
@@ -164,6 +170,10 @@ public class ProblemsToImage {
                         lastCut = currentCut;
                         problemNumber++;
                     }
+                    else {
+                        lastCut = currentCut;
+                        consecutiveBlankLines = 0;
+                    }
                 }
                 
                 // Analyze line
@@ -185,21 +195,23 @@ public class ProblemsToImage {
                         int width = RIGHT - CENTER;
                         int height = currentCut - lastCut;
                         
-                        BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-                        cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
-                                CENTER, lastCut, RIGHT, currentCut, null);
+                        if(height > 150) {
+                            BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+                            cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
+                                    CENTER, lastCut, RIGHT, currentCut, null);
 
-                        File outputFile = new File("temp/eval.png");
-                        ImageIO.write(cropped, "png", outputFile);
-                        
-                        System.out.println("Check temp");
-                        Scanner sc = new Scanner(System.in);
-                        
-                        if(sc.nextBoolean()) {
-                            outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            File outputFile = new File("temp/eval.png");
                             ImageIO.write(cropped, "png", outputFile);
-                            lastCut = currentCut;
-                            problemNumber++;
+                        
+                            System.out.println("Check temp");
+                            Scanner sc = new Scanner(System.in);
+                        
+                            if(sc.nextBoolean()) {
+                                outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                                ImageIO.write(cropped, "png", outputFile);
+                                lastCut = currentCut;
+                                problemNumber++;
+                            }
                         }
                     }
                     consecutiveBlankLines = 0;
