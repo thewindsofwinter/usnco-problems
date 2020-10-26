@@ -15,12 +15,12 @@ public class ProblemsToImage {
     private static final int FIRST_TOP = 650;
     private static final int FIRST_PAGE = 2;
     private static final int TOP = 200;
-    private static final int BOTTOM = 3000;
+    private static final int BOTTOM = 3050;
     private static final int LEFT = 130;
     private static final int RIGHT = 2420;
     private static final int CENTER = 1275;
-    private static final int MIN_GAP = 45;
-    private static final int MAX_GAP = 75;
+    private static final int MIN_GAP = 40;
+    private static final int MAX_GAP = 60;
     
     /**
      * @param args the command line arguments
@@ -38,7 +38,7 @@ public class ProblemsToImage {
         PDFRenderer pdfRenderer = new PDFRenderer(document);
         
         // Create directory 
-        new File(year).mkdirs();
+        new File("tests/" + year).mkdirs();
         
         // Start on the first page, keep going until there are sixty problems
         int problemNumber = 1;
@@ -72,12 +72,12 @@ public class ProblemsToImage {
                         consecutiveBlankLines = 0;
                         lastCut = currentCut;
                     }
-                    else {
+                    else if(height > 200) {
                         BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
                         cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
                                 LEFT, lastCut, CENTER, currentCut, null);
                         
-                        File outputFile = new File(year + "/" + problemNumber + ".png");
+                        File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
                         ImageIO.write(cropped, "png", outputFile);
                         
                         consecutiveBlankLines = 0;
@@ -101,7 +101,26 @@ public class ProblemsToImage {
                 }
                 else {
                     if(consecutiveBlankLines > MIN_GAP) {
+                        int currentCut = currentY - MAX_GAP/2;
+                        int width = CENTER - LEFT;
+                        int height = currentCut - lastCut;
                         
+                        BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+                        cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
+                                LEFT, lastCut, CENTER, currentCut, null);
+
+                        File outputFile = new File("temp/eval.png");
+                        ImageIO.write(cropped, "png", outputFile);
+                        
+                        System.out.println("Check temp");
+                        Scanner sc = new Scanner(System.in);
+                        
+                        if(sc.nextBoolean()) {
+                            outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            ImageIO.write(cropped, "png", outputFile);
+                            lastCut = currentCut;
+                            problemNumber++;
+                        }
                     }
                     consecutiveBlankLines = 0;
                 }
@@ -133,12 +152,12 @@ public class ProblemsToImage {
                         consecutiveBlankLines = 0;
                         lastCut = currentCut;
                     }
-                    else {
+                    else if(height > 200) {
                         BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
                         cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
                                 CENTER, lastCut, RIGHT, currentCut, null);
                         
-                        File outputFile = new File(year + "/" + problemNumber + ".png");
+                        File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
                         ImageIO.write(cropped, "png", outputFile);
                         
                         consecutiveBlankLines = 0;
@@ -161,6 +180,28 @@ public class ProblemsToImage {
                     consecutiveBlankLines++;
                 }
                 else {
+                    if(consecutiveBlankLines > MIN_GAP) {
+                        int currentCut = currentY - MAX_GAP/2;
+                        int width = RIGHT - CENTER;
+                        int height = currentCut - lastCut;
+                        
+                        BufferedImage cropped = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+                        cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
+                                CENTER, lastCut, RIGHT, currentCut, null);
+
+                        File outputFile = new File("temp/eval.png");
+                        ImageIO.write(cropped, "png", outputFile);
+                        
+                        System.out.println("Check temp");
+                        Scanner sc = new Scanner(System.in);
+                        
+                        if(sc.nextBoolean()) {
+                            outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            ImageIO.write(cropped, "png", outputFile);
+                            lastCut = currentCut;
+                            problemNumber++;
+                        }
+                    }
                     consecutiveBlankLines = 0;
                 }
                 
