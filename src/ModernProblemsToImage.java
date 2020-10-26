@@ -13,8 +13,8 @@ import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 public class ModernProblemsToImage {
 
     // Empirically determined 
-    private static final int FIRST_TOP = 650;
-    private static final int FIRST_PAGE = 3;
+    private static final int FIRST_TOP = 570;
+    private static final int FIRST_PAGE = 2;
     private static final int TOP = 200;
     private static final int BOTTOM = 3000;
     private static final int LEFT = 120;
@@ -36,7 +36,7 @@ public class ModernProblemsToImage {
         File[] exams = dirpath.listFiles();
         
         // Practice with one at first [DONE]
-        for(int i = 7; i < 8; i++) {
+        for(int i = 8; i < 9; i++) {
             PDDocument document = PDDocument.load(exams[i]);
             
             // Get the year of the exam for folder naming
