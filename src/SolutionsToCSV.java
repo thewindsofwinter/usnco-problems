@@ -29,6 +29,10 @@ public class SolutionsToCSV {
         
         // Practice with one at first [WIP]
         for(int i = 0; i < exams.length; i++) {
+            if (!exams[i].getPath().matches(".*\\.pdf")) {
+                continue;
+            }
+            
             PDDocument pd = PDDocument.load(exams[i]);
             
             // Get the year of the exam for folder naming
@@ -40,7 +44,7 @@ public class SolutionsToCSV {
             int pageNumber = pd.getNumberOfPages() - 1;
             
             BufferedImage currentPage = pdfRenderer.renderImageWithDPI(pageNumber, 300, ImageType.RGB);
-            ImageIOUtil.writeImage(currentPage, "answers/" + year + "/Exam-" + (pageNumber+1) + ".png", 300);
+            ImageIOUtil.writeImage(currentPage, "answers/" + year + "-" + (pageNumber+1) + ".png", 300);
             
             // Make sure to close at end
             pd.close();
