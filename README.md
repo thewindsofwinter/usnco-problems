@@ -21,9 +21,9 @@ Notwithstanding the provisions of sections 106 and 106A, the fair use of a copyr
 The fact that a work is unpublished shall not itself bar a finding of fair use if such finding is made upon consideration of all the above factors.
 
 ## Future To-Do
- * Clean up my ugly code
- * Record answers to problems
- * Record topics for each problem
- * Create difficulty rating system
- * Create discord bot to serve questions
- * Create website (?) to serve questions
+ - [ ] Clean up my ugly code
+ - [ ] Record answers to problems
+ - [ ] Record topics for each problem
+ - [ ] Create difficulty rating system
+ - [X] Create discord bot to serve questions
+ - [ ] Create website (?) to serve questions
