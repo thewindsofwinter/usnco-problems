@@ -35,7 +35,11 @@ public class ExtensionManager {
         Iterator<Path> it = str.iterator();
         
         while(it.hasNext()) {
-            System.out.println(it.next());
+            File f = it.next().toFile();
+            if(f.isFile() && f.getPath().endsWith(".PNG")) {
+                System.out.println("Changing " + f.getPath() + " to .png");
+                changeExtension(f, ".png");
+            }
         }
 
     }
