@@ -17,7 +17,6 @@ import java.util.stream.Stream;
  */
 public class ExtensionManager {
     
-    // THIS CODE DOESNT WORK DONT USE IT
     
     // Lots of code, including this function, from stackoverflow
     public static void modify(File file) 
@@ -37,7 +36,6 @@ public class ExtensionManager {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        // Whoops, didnt work
         File directoryPath = new File("./tests");
         
         Stream<Path> str = Files.walk(Paths.get("./tests"));
