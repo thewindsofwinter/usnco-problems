@@ -22,8 +22,8 @@ The fact that a work is unpublished shall not itself bar a finding of fair use i
 
 ## Future To-Do
  - [ ] Clean up my ugly code
- - [ ] Record answers to problems
+ - [X] Record answers to problems
  - [ ] Record topics for each problem
- - [ ] Create difficulty rating system
+ - [ ] Create difficulty rating system (in progress)
  - [X] Create discord bot to serve questions
  - [ ] Create website (?) to serve questions
