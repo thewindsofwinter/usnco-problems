@@ -22,13 +22,13 @@ public class ExtensionManager {
     // Lots of code, including this function, from stackoverflow
     public static void modify(File file) 
     {
-        int index = file.getName().lastIndexOf(".");
+        int index = file.getPath().lastIndexOf(".");
         //print filename
         //System.out.println(file.getName().substring(0, index));
         //print extension
         //System.out.println(file.getName().substring(index));
         //use file.renameTo() to rename the file
-        file.renameTo(new File(file.getName().substring(0, index) + ".png"));
+        file.renameTo(new File(file.getPath().substring(0, index) + ".png"));
     }
 
 
