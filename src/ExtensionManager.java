@@ -38,6 +38,8 @@ public class ExtensionManager {
             File f = it.next().toFile();
             if(f.isFile() && f.getPath().endsWith(".PNG")) {
                 System.out.println("Changing " + f.getPath() + " to .png");
+                // Change to JPG first, that way case is correct
+                changeExtension(f, ".jpg");
                 changeExtension(f, ".png");
             }
         }
