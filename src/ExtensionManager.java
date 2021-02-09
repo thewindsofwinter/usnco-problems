@@ -17,18 +17,27 @@ import java.util.stream.Stream;
  */
 public class ExtensionManager {
     
+    // THIS CODE DOESNT WORK DONT USE IT
+    
     // Lots of code, including this function, from stackoverflow
-    public static File changeExtension(File f, String newExtension) {
-        int i = f.getName().lastIndexOf('.');
-        String name = f.getName().substring(0,i);
-        return new File(f.getParent(), name + newExtension);
+    public static void modify(File file) 
+    {
+        int index = file.getName().lastIndexOf(".");
+        //print filename
+        //System.out.println(file.getName().substring(0, index));
+        //print extension
+        //System.out.println(file.getName().substring(index));
+        //use file.renameTo() to rename the file
+        file.renameTo(new File(file.getName().substring(0, index) + ".png"));
     }
+
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        // Whoops, didnt work
         File directoryPath = new File("./tests");
         
         Stream<Path> str = Files.walk(Paths.get("./tests"));
@@ -38,9 +47,7 @@ public class ExtensionManager {
             File f = it.next().toFile();
             if(f.isFile() && f.getPath().endsWith(".PNG")) {
                 System.out.println("Changing " + f.getPath() + " to .png");
-                // Change to JPG first, that way case is correct
-                changeExtension(f, ".jpg");
-                changeExtension(f, ".png");
+                modify(f);
             }
         }
 
