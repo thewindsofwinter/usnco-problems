@@ -10,6 +10,8 @@ Below are some ways that you can contribute to this repository:
 
 If you see a bug, make sure to raise an issue in the issues section. Afterwards, it will be triaged and addressed appropriately. (To do this, click on the issues tab, then click the green "New Issue" button and describe your problem).
 
+**New:** if some of the images for tests are rendered improperly, but you don't want to make a new issue, there is now a Google Form so that you can easily submit small image bugfixes. Link: https://forms.gle/XCDiFpm3AQoeniSr8. You can identify bugs (to put into issues) or to upload image bugfixes.
+
 ## :test_tube: New Problems
 
 [Guidelines to be updated]
