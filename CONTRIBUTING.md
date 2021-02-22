@@ -8,7 +8,7 @@ Below are some ways that you can contribute to this repository:
 
 ## :bug: Bug Reports
 
-[Guidelines to be updated]
+If you see a bug, make sure to raise an issue in the issues section. Afterwards, it will be triaged and addressed appropriately. (To do this, click on the issues tab, then click the green "New Issue" button and describe your problem).
 
 ## :test_tube: New Problems
 
