@@ -6,7 +6,7 @@ This is exactly what it sounds like: a repository of problems from the USNCO, gr
 
 If you wish to query certain images, they are located at `https://raw.githubusercontent.com/thewindsofwinter/usnco-problems/master/tests/[section]/[year]/[number].png`, where [section] can be either `locals`, `part_i`, or `part_ii`, year is the year the problem was created in, and number is the problem number.
 
-See an issue with a problem? Either open an issue or use this Google Form: https://forms.gle/djXXtiCeicqtHisL7. For more detailed information on other ways you can grow this repository, please refer to the [Contributing.MD](https://github.com/thewindsofwinter/usnco-problems/blob/master/CONTRIBUTING.md).
+See an issue with a problem? Either open an issue or use this Google Form: https://forms.gle/djXXtiCeicqtHisL7. For more detailed information on other ways you can grow this repository, please refer to the [CONTRIBUTING.md](https://github.com/thewindsofwinter/usnco-problems/blob/master/CONTRIBUTING.md).
 
 ## Credit for Code/Uploads
 
