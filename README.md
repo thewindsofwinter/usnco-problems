@@ -41,3 +41,6 @@ The fact that a work is unpublished shall not itself bar a finding of fair use i
  - [ ] Create difficulty rating system (in progress)
  - [X] Create discord bot to serve questions
  - [ ] Create website (?) to serve questions
+
+[![HitCount](http://hits.dwyl.com/winterwind2022/usnco-problems.svg)](http://hits.dwyl.com/winterwind2022/usnco-problems)
+
