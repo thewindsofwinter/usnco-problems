@@ -25,6 +25,8 @@ public class ModernProblemsToImage {
     private static final int NUMBER_RIGHT = 115;
     private static final int NUMBER_HEIGHT = 50;
     private static final int GAP = 70;
+    // Adapt to scrape 2021 LOCAL
+    private static final String DIR_PATH = "C:/Users/winterwind/Downloads/2021_LOCAL";
     
     /**
      * @param args the command line arguments
@@ -32,11 +34,11 @@ public class ModernProblemsToImage {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException {
         
-        File dirpath = new File("C:/Users/winterwind/Downloads/Exam PDFs");
+        File dirpath = new File(DIR_PATH);
         File[] exams = dirpath.listFiles();
         
         // Practice with one at first [DONE]
-        for(int i = 11; i < exams.length; i++) {
+        for(int i = 0; i < exams.length; i++) {
             PDDocument document = PDDocument.load(exams[i]);
             
             // Get the year of the exam for folder naming
@@ -44,7 +46,7 @@ public class ModernProblemsToImage {
             PDFRenderer pdfRenderer = new PDFRenderer(document);
             
             // Create directory 
-            new File("tests/" + year).mkdirs();
+            new File("tests/locals/" + year).mkdirs();
 
             // Start on the first page, keep going until there are sixty problems
             int problemNumber = 1;
@@ -113,7 +115,7 @@ public class ModernProblemsToImage {
                             cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
                                     LEFT, lastCut, CENTER, currentCut, null);
                                 
-                            File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            File outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                             ImageIO.write(cropped, "png", outputFile);
                                 
                             lastCut = currentCut;
@@ -178,7 +180,7 @@ public class ModernProblemsToImage {
                     cropped.getGraphics().drawImage(currentPage, 0, 0, w, h, 
                             LEFT, lastCut, CENTER, bottomCut, null);
 
-                    File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                    File outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                     ImageIO.write(cropped, "png", outputFile);
                     
                     problemNumber++;
@@ -241,7 +243,7 @@ public class ModernProblemsToImage {
                             cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
                                     CENTER, lastCut, RIGHT, currentCut, null);
                                 
-                            File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            File outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                             ImageIO.write(cropped, "png", outputFile);
                                 
                             lastCut = currentCut;
@@ -307,7 +309,7 @@ public class ModernProblemsToImage {
                     cropped.getGraphics().drawImage(currentPage, 0, 0, w, h, 
                             CENTER, lastCut, RIGHT, bottomCut, null);
 
-                    File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                    File outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                     ImageIO.write(cropped, "png", outputFile);
                     
                     problemNumber++;
