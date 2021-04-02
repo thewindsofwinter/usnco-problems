@@ -46,7 +46,7 @@ public class ProblemsToImage {
             PDFRenderer pdfRenderer = new PDFRenderer(document);
             
             // Create directory 
-            new File("tests/" + year).mkdirs();
+            new File("tests/locals/" + year).mkdirs();
 
             // Start on the first page, keep going until there are sixty problems
             int problemNumber = 1;
@@ -86,7 +86,7 @@ public class ProblemsToImage {
                             cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
                                     LEFT, lastCut, CENTER, currentCut, null);
 
-                            File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            File outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                             ImageIO.write(cropped, "png", outputFile);
 
                             consecutiveBlankLines = 0;
@@ -130,7 +130,7 @@ public class ProblemsToImage {
                                 Scanner sc = new Scanner(System.in);
 
                                 if(sc.nextBoolean()) {
-                                    outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                                    outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                                     ImageIO.write(cropped, "png", outputFile);
                                     lastCut = currentCut;
                                     problemNumber++;
@@ -172,7 +172,7 @@ public class ProblemsToImage {
                             cropped.getGraphics().drawImage(currentPage, 0, 0, width, height, 
                                     CENTER, lastCut, RIGHT, currentCut, null);
 
-                            File outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                            File outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                             ImageIO.write(cropped, "png", outputFile);
 
                             consecutiveBlankLines = 0;
@@ -216,7 +216,7 @@ public class ProblemsToImage {
                                 Scanner sc = new Scanner(System.in);
 
                                 if(sc.nextBoolean()) {
-                                    outputFile = new File("tests/" + year + "/" + problemNumber + ".png");
+                                    outputFile = new File("tests/locals/" + year + "/" + problemNumber + ".png");
                                     ImageIO.write(cropped, "png", outputFile);
                                     lastCut = currentCut;
                                     problemNumber++;
