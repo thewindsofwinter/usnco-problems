@@ -25,6 +25,8 @@ public class ProblemsToImage {
     private static final int CENTER = 1275;
     private static final int MIN_GAP = 40;
     private static final int MAX_GAP = 52;
+    // Adapt to scrape 2021 LOCAL
+    private static final String DIR_PATH = "C:/Users/winterwind/Downloads/2021_LOCAL";
     
     /**
      * @param args the command line arguments
@@ -32,11 +34,12 @@ public class ProblemsToImage {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException {
         
-        File dirpath = new File("C:/Users/winterwind/Downloads/Exam PDFs");
+        // Control what directory you're searching
+        File dirpath = new File(DIR_PATH);
         File[] exams = dirpath.listFiles();
         
         // Practice with one at first [DONE]
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 1; i++) {
             PDDocument document = PDDocument.load(exams[i]);
             // Get the year of the exam for folder naming
             String year = exams[i].getName().substring(0, 4);
