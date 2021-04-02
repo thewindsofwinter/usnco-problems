@@ -2,6 +2,20 @@
 
 This is exactly what it sounds like: a repository of problems from the USNCO, grouped by year. In the future, problems will be tagged with topics and difficulty. A discord bot will also be created to serve problems from this repository to the Chemistry Olympiad discord server.
 
+## Usage
+
+If you wish to query certain images, they are located at `https://raw.githubusercontent.com/thewindsofwinter/usnco-problems/master/tests/[section]/[year]/[number].png`, where [section] can be either `locals`, `part_i`, or `part_ii`, year is the year the problem was created in, and number is the problem number.
+
+See an issue with a problem? Either open an issue or use this Google Form: https://forms.gle/djXXtiCeicqtHisL7. For more detailed information on other ways you can grow this repository, please refer to the [CONTRIBUTING.md](https://github.com/thewindsofwinter/usnco-problems/blob/master/CONTRIBUTING.md).
+
+## Credit for Code/Uploads
+
+Description | Author
+--- | --- 
+Problem seperation code | thewindsofwinter
+Uploading USNCO Part Is | thewindsofwinter
+Uploading USNCO Part IIs and Locals | fizzest
+
 ## Copyright Notice
 
 All problems on the USNCO are property of the American Chemical Society (ACS). This archive does not seek any commercial benefit on these problems, and we seek to merely archive past problems as images for chemistry educational purposes. If the original copyright holders take issue with this usage, please contact the author of this repository.
@@ -27,3 +41,4 @@ The fact that a work is unpublished shall not itself bar a finding of fair use i
  - [ ] Create difficulty rating system (in progress)
  - [X] Create discord bot to serve questions
  - [ ] Create website (?) to serve questions
+

@@ -8,12 +8,14 @@ Below are some ways that you can contribute to this repository:
 
 ## :bug: Bug Reports
 
-[Guidelines to be updated]
+If you see a bug, make sure to raise an issue in the issues section. Afterwards, it will be triaged and addressed appropriately. (To do this, click on the issues tab, then click the green "New Issue" button and describe your problem).
+
+**New:** if some of the images for tests are rendered improperly, but you don't want to make a new issue, there is now a Google Form so that you can easily submit small image bugfixes. Link: https://forms.gle/XCDiFpm3AQoeniSr8. You can identify bugs (to put into issues) or to upload image bugfixes.
 
 ## :test_tube: New Problems
 
-[Guidelines to be updated]
+If you want to expand the problemset with other chemistry problems, be that your own or other exams (such as Chinese Chemistry Olympiad or IChO prep and IChO problems) open an issue and tag it with the 'expansions' tag. Then, if you wish to do it yourself note that in the issue description, and open a pull request to do so. If you contribute major expansions to problems or code I will make sure to credit you for that in the README.md! 
 
 ## :man_technologist: Additional Code
 
-[Guidelines to be updated]
+If you want to add more code for different purposes, feel free to open a pull request to contribute. While code quality currently is not the best, I hope that the code in this repository will soon(TM) follow `checkstyle` and `spotless` standards.
