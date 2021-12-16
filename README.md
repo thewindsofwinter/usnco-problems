@@ -2,6 +2,9 @@
 
 This is exactly what it sounds like: a repository of problems from the USNCO, grouped by year. In the future, problems will be tagged with topics and difficulty. A discord bot will also be created to serve problems from this repository to the Chemistry Olympiad discord server.
 
+## How It Works
+The code in the /src folder utilizes Apache PDFBox to scrape images from PDFs automatically by cutting the problems whenever a significant gap between problems is found (in short, there is some other logic to prevent poor results, at least as well as possible). The main code used to scrape is ModernProblemsToImage.java, while shift.java shifts problems around if errors do occur and PDFScrape downloads the files from the American Chemical Society. Cleanup of the code will occur soon, although it is not a high priority.
+
 ## Usage
 
 If you wish to query certain images, they are located at `https://raw.githubusercontent.com/thewindsofwinter/usnco-problems/master/tests/[section]/[year]/[number].png`, where [section] can be either `locals`, `part_i`, or `part_ii`, year is the year the problem was created in, and number is the problem number.
